@@ -1,0 +1,133 @@
+{% extends 'base.html' %} {% load filter_tags %} {% block content %}
+<div class="">
+    <div class="">
+        <div class="">
+            <div class="">
+                <h2 class="color-text-black h1">#About Me</h2>
+
+            </div>
+            {% for i in main %}
+            <p>{{ i.name }} {{ i.last_name }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_main' i.user.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+            </p>
+            <p>Age: {{ i.age }} y.o.</p>
+            <p>Location: {{ i.location }}</p>
+            <p>Email: {{ i.email }}</p>
+            <p>Git Hub: {{ i.git_link }}</p>
+            {% endfor %}
+
+            <div class="">
+                <h2 class="color-text-black h1">#Skills</h2>
+            </div>
+            {% for skill in skills %}
+            <p>{{ skill.description }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_skills' skill.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+            </p>
+
+            {% endfor %}
+
+            <div class="">
+                <h2 class="color-text-black h1">#Languages</h2>
+            </div>
+            {% for language in languages %}
+            <p>{{ language.title }}: {{ language.level_of_knowledge }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_language' language.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+            </p>
+            {% endfor %}
+
+            <div class="">
+                <h2 class="color-text-black h1">#Expirience</h2>
+            </div>
+
+            {% for exp in exps %}
+            <p class="names_style">{{ exp.title }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_exp' exp.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+
+            </p>
+            <p class="color-text-grey">From {{ exp.date_from }} to {% if exp.date_to %} {{ exp.date_to }} {% else %} Present time {% endif %} </p>
+            {#
+            <p>{{ exp.responsibilities }}</p>#} {% with exp.responsibilities|split:";" as ress %} {% for res in ress %}
+            <p>* {{ res }}</p>
+            {% endfor %}
+
+            <p>{{ res }}</p>
+            {% endwith %} {% endfor %}
+
+
+            <div class="">
+                <h2 class="color-text-black h1">#Education</h2>
+            </div>
+            {% for ed in educas %}
+            <p class="names_style">{{ ed.name_of_school }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_education' ed.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+            </p>
+            <p>{{ ed.name_of_specialities }}</p>
+            <p class="color-text-grey">From {{ ed.date_from }} to {{ ed.date_to }}</p>
+            {% endfor %}
+
+            <div class="">
+                <h2 class="color-text-black h1">#Courses</h2>
+            </div>
+            {% for cours in course %}
+            <p class="names_style">{{ cours.teacher }} {% if request.user.is_authenticate %}
+                <a class="btn btn-outline-secondary float-right" href="{% url 'my_info:update_courses' cours.pk %}">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                            </svg>
+                </a>
+                {% endif %}
+            </p>
+            <p>{{ cours.name_of_course }}</p>
+            <p class="color-text-grey">{{ cours.date }}</p>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
