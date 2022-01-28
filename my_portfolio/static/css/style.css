@@ -17,3 +17,10 @@
     font-size: large;
 }
 
+.block_skill {
+    flex-grow: 1;
+}
+
+.margin_for_a {
+    margin-left: 10px;
+}

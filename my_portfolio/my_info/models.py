@@ -21,29 +21,31 @@ class MainInfoBlock(models.Model):
 
 class SkillsInfoBlock(models.Model):
     description = models.TextField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
 
     def __str__(self):
         return self.description
 
 
 class LanguagesInfoBlock(models.Model):
-    BEG = 'Beginner'
-    ELEM = 'Elementary'
-    INTER = 'Intermediate'
-    UPPER = 'Upper intermediate'
-    ADVANCED = 'Advanced'
+    BEG = "Beginner"
+    ELEM = "Elementary"
+    INTER = "Intermediate"
+    UPPER = "Upper intermediate"
+    ADVANCED = "Advanced"
     LEVEL_CHOICES = (
-        (BEG, 'Beginner'),
-        (ELEM, 'Elementary'),
-        (INTER, 'Intermediate'),
-        (UPPER, 'Upper intermediate'),
-        (ADVANCED, 'Advanced')
+        (BEG, "Beginner"),
+        (ELEM, "Elementary"),
+        (INTER, "Intermediate"),
+        (UPPER, "Upper intermediate"),
+        (ADVANCED, "Advanced"),
     )
 
     title = models.CharField(max_length=255)
-    level_of_knowledge = models.CharField(max_length=255, default='Beginner', choices=LEVEL_CHOICES)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    level_of_knowledge = models.CharField(
+        max_length=255, default="Beginner", choices=LEVEL_CHOICES
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
 
     def __str__(self):
         return self.title
@@ -79,6 +81,3 @@ class CoursesInfoBlock(models.Model):
 
     def __str__(self):
         return self.name_of_course
-
-
-

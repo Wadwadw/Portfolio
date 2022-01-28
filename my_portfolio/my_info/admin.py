@@ -1,6 +1,12 @@
 from django.contrib import admin
-from .models import MainInfoBlock, SkillsInfoBlock, LanguagesInfoBlock, ExperienceInfoBlock,\
-    EducationInfoBlock, CoursesInfoBlock
+from .models import (
+    MainInfoBlock,
+    SkillsInfoBlock,
+    LanguagesInfoBlock,
+    ExperienceInfoBlock,
+    EducationInfoBlock,
+    CoursesInfoBlock,
+)
 
 
 admin.site.register(MainInfoBlock)
