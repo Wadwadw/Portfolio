@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import main, MainInfoUpdate, SkillsInfoUpdate, LanguageInfoUpdate,\
-    EducationInfoUpdate, ExperienceInfoUpdate, CoursesInfoUpdate
-
+    EducationInfoUpdate, ExperienceInfoUpdate, CoursesInfoUpdate, UserListView
 
 
 app_name = 'my_info'
@@ -15,5 +14,5 @@ urlpatterns = [
     path('update_exp/<int:pk>/', ExperienceInfoUpdate.as_view(), name='update_exp'),
     path('update_education/<int:pk>/', EducationInfoUpdate.as_view(), name='update_education'),
     path('update_courses/<int:pk>/', CoursesInfoUpdate.as_view(), name='update_courses'),
-
+    path('portfolio_list/', UserListView.as_view(), name='portfolio_list')
 ]

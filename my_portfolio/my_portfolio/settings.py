@@ -122,3 +122,6 @@ STATIC_ROOT = 'static_root'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = '/portfolio/portfolio_list'
+LOGOUT_REDIRECT_URL = '/portfolio/portfolio_list'

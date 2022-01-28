@@ -28,6 +28,17 @@ def main(request, pk):
     return render(request, 'my_info/main_info.html', context=context)
 
 
+class UserListView(generic.ListView):
+    template_name = 'my_info/portfolio_list.html'
+    context_object_name = 'portfolios'
+
+    def get_queryset(self):
+        return MainInfoBlock.objects.all()
+
+    def get_success_url(self):
+        return reverse('my_info:main', args=str(self.request.user.pk))
+
+
 class MainInfoUpdate(generic.UpdateView):
     template_name = 'my_info/main_update.html'
     form_class = MainInfoForm
@@ -63,6 +74,11 @@ class LanguageInfoUpdate(generic.UpdateView):
 
     def get_success_url(self):
         return reverse('my_info:main', args=str(self.request.user.pk))
+
+
+class LanguageInfoDelete(generic.DeleteView):
+    template_name = 'my_info/language_delete'
+    queryset = LanguagesInfoBlock.objects.all()
 
 
 class ExperienceInfoUpdate(generic.UpdateView):
